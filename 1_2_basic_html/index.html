@@ -6,13 +6,55 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>Climate Change</h1>
     <h3>Tutorial Assignment: 1_2_basic_html </h3>
     <table>
-      <!-- Add your table data here -->
+      <caption>2021 Ocean Heat Content (1022 joules)</caption>
+      <thead>
+        <tr>
+          <th rowspan="2" width="25%">Basin</th>      <th colspan="6" class="center">0-700 meters | Rank (1955-2021)</th>
+        </tr>
+        <tr>
+          <th width="25%" colspan="2" class="center">Entire Basin</th>
+          <th width="25%" colspan="2" class="center">Northern Hemisphere</th>
+          <th width="25%" colspan="2" class="center">Southern Hemisphere</th>
+        </tr>
+      </thead>
+      <tbody>  
+        <tr>
+          <td>Atlantic</td><td class="right">8.416</td><td class="right">1st</td><td class="right">4.716</td><td class="right">1st</td><td class="right">3.700</td><td class="right">1st</td>
+        </tr>
+        <tr>
+          <td>Indian</td><td class="right">3.511</td><td class="right">5th</td><td class="right">0.931</td><td class="right">2nd</td><td class="right">2.580</td><td class="right">10th</td>
+        </tr>
+        <tr>
+          <td>Pacific</td><td class="right">6.737</td><td class="right">1st</td><td class="right">3.154</td><td class="right">4th</td><td class="right">3.582</td><td class="right">1st</td>
+        </tr>
+        <tr>
+          <td>World</td><td class="right">18.665</td><td class="right">1st</td><td class="right">8.803</td><td class="right">1st</td><td class="right">9.862</td><td class="right">1st</td>
+        </tr>
+      </tbody>
+      <tfoot><tr>
+        <td class="italic" colspan="7" style="border:none;padding-left:0;background-color:white;">Source: <a target="_blank" rel="noopener noreferrer" href="https://www.nodc.noaa.gov/OC5/3M_HEAT_CONTENT/">Basin time series of heat content</a></td></tr>
+      </tfoot>
     </table>
-    <svg>
+    <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg">
       <!-- Add your rectangles in here -->
-    </svg>
+      <rect x="5" y="5" width="80" height="40" rx="2" style="fill: rgb(45, 50, 117); stroke: rgb(180, 179, 178); stroke-width: 1;" />
+      <style>
+        .small { font: italic bold 6px calibri; fill:rgb(197, 226, 252)}
+        .medium { font: 7px sans-serif; fill:rgb(197, 226, 252)}
+        .heavy { font: italic 8px sans-serif; fill:aliceblue}
+      </style>
+      <text x="6" y="15" class="heavy">Temperature</text>
+      <text x="6" y="25" class="medium">Thermosteric Sea Level</text>
+      <text x="6" y="35" class="small">Salinity </text>
+      
+      <rect x="85" y="5" width="20" height="40" style="fill: rgb(196, 197, 202); stroke: rgb(180, 94, 8); stroke-width: 0.2;" />
+      <rect x="110" y="5" width="40" height="40" style="fill: rgb(224, 107, 10);" />
+      <rect x="110" y="5" width="20" height="10" style="fill: rgb(70, 133, 145); stroke: rgb(232, 212, 245); stroke-width: 0.2;" />
+      
+      <rect x="5" y="50" width="125" height="4" style="fill:rgb(50, 109, 55);"/> 
+    </svg>  
   </body>
 </html>
