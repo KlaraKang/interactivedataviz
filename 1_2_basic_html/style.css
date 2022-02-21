@@ -46,3 +46,38 @@ td.right {
 td.italic {
   font-style: italic;
 }
+
+text.small { 
+  font-family: Arial, Helvetica, sans-serif;
+  font: italic bold 6px calibri; fill:rgb(197, 226, 252);
+}
+text.medium { 
+  font-family: Arial, Helvetica, sans-serif;
+  font: 7px sans-serif; fill:rgb(197, 226, 252);
+}
+text.heavy { 
+  font-family: Arial, Helvetica, sans-serif;
+  font: italic 8px sans-serif; fill:aliceblue;
+}
+img.fit{
+  width: 300px; height:500px;
+}
+button.view{
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    background-color: rgb(96, 91, 119);
+   
+}
+
+button.view:hover {
+    background-color: rgb(128, 49, 49);
+}
+button.view:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+              inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
