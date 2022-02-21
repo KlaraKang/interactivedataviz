@@ -1,5 +1,7 @@
 body {
   font-family: "Source Sans Pro", sans-serif;
+  background-color: rgb(7, 7, 65);
+  color: white;
   font-size: 16px;
   padding: 1em;
 }
@@ -9,13 +11,14 @@ h1 {
 }
 
 h3 {
+  color:rgb(202, 199, 199);
   font-size: 2em;
   margin: 0.25em 0;
 }
 
 p {
   font-family: serif;
-  font-size: 1em;
+  font-size: 2em;
 }
 
 section {

@@ -6,9 +6,18 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>How many pets do you have?</h1>
     <h3>Tutorial Assignment: 1_3_intro_to_js </h3>
+    
     <!-- add any HTML you might need here, like a button or a div -->
+    <div id="pet-label" style="color:rgb(252, 244, 142);">Enter your pet's name:</div>
+    <input id="pet-name"/><br>
+    <div>Color: </div><input id="pet-color"/><br>
+    <div>Gender: </div><input id="pet-gender"/><br>
+    <div>Age: </div><input id="pet-age"/><br>
+    <button id="pet-submit" onclick="petNameUpdate()">Submit</button>
+     <br>   
+    <div id="pet-count" style="color:rgb(253, 162, 87);">Number of pets you have entered: 0</div>
     <script src="main.js"></script>
   </body>
 </html>
