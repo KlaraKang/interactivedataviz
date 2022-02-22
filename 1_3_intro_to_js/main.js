@@ -30,7 +30,7 @@ function petNameUpdate() {
     
     console.log(petCount)
     petCount = petCount +1
-    count.innerText = "Number of names you have entered: " + petCount;
+    count.innerText = "Number of pets you have entered: " + petCount;
     input.value = ""
     color.value=""
     gender.value=""
