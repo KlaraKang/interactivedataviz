@@ -2,7 +2,7 @@
 /* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * .7;
 const height = window.innerHeight * .7;
-const margin = {top:20, right:20, bottom:30, left:55};
+const margin = {top:20, right:20, bottom:50, left:55};
 const innerWidth = width - margin.right - margin.left; 
 const innerHeight = height - margin.top - margin.bottom;
 // step 2. DATA
@@ -34,10 +34,23 @@ d3.csv('../data/squirrelActivities.csv', d3.autoType)
                    .append("g")
                      .attr("transform",`translate(${margin.left}, ${margin.top})`);
                  
-          svg_v.append("g").attr("transform",`translate(0,${innerHeight})`)
-                           .call(d3.axisBottom(xScales_v));                           ; 
-          
-          svg_v.append("g").call(d3.axisLeft(yScales_v))
+          svg_v.append("g").call(d3.axisBottom(xScales_v))
+                           .attr("transform",`translate(0,${innerHeight})`)
+                           .append("text")
+                           .attr("y", margin.bottom-margin.top)
+                           .attr("x", innerWidth-margin.right)
+                           .attr("stroke", "black")
+                           .attr("text-anchor", "end")
+                           .text("Activity Type");  
+                                
+          svg_v.append("g").call(d3.axisLeft(yScales_v)) 
+               .append("text")
+               .attr("transform", "rotate(-90)")
+               .attr("y", 0-margin.left+10)
+               .attr("x", margin.top-margin.bottom)
+               .attr("stroke", "black")
+               .attr("text-anchor", "end")
+               .text("Activity Volume");                           
                    
 // step 5. SELECT
 /* Select your container and append the visual elements to it */
@@ -82,8 +95,22 @@ d3.csv('../data/catActivities.csv', d3.autoType)
                    .attr("transform",`translate(${margin.left}, ${margin.top})`);
                  
           svg_h.append("g").call(d3.axisLeft(yScales_h))
+               .append("text")
+                  .attr("transform", "rotate(-90)")
+                  .attr("y", 0-margin.left+10)
+                  .attr("x", margin.top-margin.bottom)
+                  .attr("stroke", "black")
+                  .attr("text-anchor", "end")
+                  .text("Activity Type");   
+
           svg_h.append("g").call(d3.axisBottom(xScales_h))
-                   .attr("transform",`translate(0,${innerHeight})`); 
+                   .attr("transform",`translate(0,${innerHeight})`)
+              .append("text")
+                   .attr("y", margin.bottom-margin.top)
+                   .attr("x", innerWidth-margin.right)
+                   .attr("stroke", "black")
+                   .attr("text-anchor", "end")
+                   .text("Activity Volume");  
        
 // step 5. SELECT
 /* Select your container and append the visual elements to it */
@@ -95,7 +122,7 @@ d3.csv('../data/catActivities.csv', d3.autoType)
                .attr("height", yScales_h.bandwidth())
                .attr("x", d=>xScales_h(0)) // 6. ATTRIBUTES: where to place in x and y plane to visualize
                .attr("fill", d=> colorScale(d.activity))
-        
+                         
     
 });
 
