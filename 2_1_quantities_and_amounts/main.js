@@ -1,7 +1,7 @@
 // step 1. VARIABLES
 /* CONSTANTS AND GLOBALS */
-const width = window.innerWidth * .85;
-const height = window.innerHeight * .85;
+const width = window.innerWidth * .7;
+const height = window.innerHeight * .7;
 const margin = {top:20, right:20, bottom:30, left:55};
 const innerWidth = width - margin.right - margin.left; 
 const innerHeight = height - margin.top - margin.bottom;
