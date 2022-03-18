@@ -81,11 +81,9 @@ const yAxis = d3.axisLeft(yScale)
       .data([data]) 
       .join("path")
       .attr("class","area")  
-      .attr("fill","none") 
+      .attr("fill","yellow") 
       .attr("d", d=>areaGen(d))
-      .transition()
-      .delay(1000)
-      .attr("fill","yellow")
+      
       
       
 });
