@@ -26,13 +26,18 @@ d3.csv("../data/healthyLifestyleCity_2021.csv", d3.autoType)
 
   // to color differently by category
   const legendKey = ["EU","OC","AM","AS","AF"]
+  const label = ["Cities in Europe","Cities in Oceania","Cities in America",
+                  "Cities in Asia","Cities in Africa"]
   const colorSet = ["#0081C8","#00A651","#EE334E","#FCB131","#442288"]
   const colorScale = d3.scaleOrdinal()
                        .domain(legendKey)
                        .range(colorSet)         
+ 
   const sizeScale = d3.scaleSqrt()
                       .domain(d3.extent(data, d=> d.cityOutdoorActivity)) 
-                      .range([strokeWidth, 30+strokeWidth])
+                      .range([strokeWidth, 15+strokeWidth])
+  
+  const legend = d3.scaleOrdinal(label)
 
   /* 4. HTML ELEMENTS */
   // svg
@@ -50,32 +55,37 @@ d3.csv("../data/healthyLifestyleCity_2021.csv", d3.autoType)
                .text("<Hapiness Level and Life Expectancy>");   
 
       // add legend
-            svg.append("rect")
-               .attr("width", width/4)
-               .attr("height", height/5)
-               .attr("x", legendPosX)
-               .attr("y", legendPosY)
-               .attr("fill","#E5E3E6")
-            
+            svg.append("g")
+               .attr("transform",`translate(${legendPosX},${legendPosY})`)
+               .append("rect")
+                  .attr("width", width/4)
+                  .attr("height", height/5)
+                  .attr("fill","#E5E3E6")
+              svg.append("text")
+                  .attr("x", legendPosX+5)
+                  .attr("y",legendPosY+10)
+                  .attr("font-size", "11px")
+                  .attr("stroke","#000000")
+                  .text("dot size = outdoor activity level")
+              
             svg.selectAll("circle")
                   .data(colorSet)           
                   .enter()
                   .append("circle")
                   .attr("cx", legendPosX+10)
-                  .attr("cy", function(d,i){ return (legendPosY+10) + i*15})
+                  .attr("cy", (d,i) => ((legendPosY+30) + i*15))
                   .attr("r",5)
                   .style("fill", d=>colorScale(d))
 
             svg.selectAll("text")
-               .data(legendKey)
-               .enter()
-               .append("text")
-               .attr("x", legendPosX+20)
-               .attr("y", function(d,i){ return (legendPosY+10) + i*15})
-               .text(function(d,i){ return (legendKey[i])})
-                 .style("fill", d=>colorScale(d))
-                 .attr("font-size", "12px")
-           
+                 .data(label)
+                 .enter()
+                 .append("text")
+                 .attr("x", legendPosX+20)
+                 .attr("y", (d,i) => ((legendPosY+3) + i*15))
+                 .text(d=>legend(d))
+                   .style("fill", d=>colorScale(d))
+                   .attr("font-size", "11px"); 
 
   // axis scales              
   const xAxis = d3.axisBottom(xScale)
@@ -121,6 +131,7 @@ d3.csv("../data/healthyLifestyleCity_2021.csv", d3.autoType)
                         .delay(200)
                            .attr("r", d => sizeScale(d.cityOutdoorActivity))
                            .attr("fill", d => colorScale(d.continent))
+                     
 
                  );
                            
