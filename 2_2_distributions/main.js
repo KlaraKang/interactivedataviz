@@ -37,8 +37,10 @@ d3.csv("../data/healthyLifestyleCity_2021.csv", d3.autoType)
                       .domain(d3.extent(data, d=> d.cityOutdoorActivity)) 
                       .range([strokeWidth, 15+strokeWidth])
   
-  const legend = d3.scaleOrdinal(label)
-
+  const legend = d3.scaleOrdinal()
+                   .domain(colorSet)
+                   .range(label)
+ 
   /* 4. HTML ELEMENTS */
   // svg
   const svg = d3.select("#container")
@@ -66,7 +68,7 @@ d3.csv("../data/healthyLifestyleCity_2021.csv", d3.autoType)
                   .attr("y",legendPosY+10)
                   .attr("font-size", "11px")
                   .attr("stroke","#000000")
-                  .text("dot size = outdoor activity level")
+                  .text("dot size: outdoor activity level")
               
             svg.selectAll("circle")
                   .data(colorSet)           
@@ -77,13 +79,14 @@ d3.csv("../data/healthyLifestyleCity_2021.csv", d3.autoType)
                   .attr("r",5)
                   .style("fill", d=>colorScale(d))
 
-            svg.selectAll("text")
+            svg.selectAll("text.legendtext")
                  .data(label)
                  .enter()
                  .append("text")
+                 .attr("class","legendtext")
                  .attr("x", legendPosX+20)
-                 .attr("y", (d,i) => ((legendPosY+3) + i*15))
-                 .text(d=>legend(d))
+                 .attr("y", (d,i) => ((legendPosY+33) + i*15))
+                 .text(d => d)
                    .style("fill", d=>colorScale(d))
                    .attr("font-size", "11px"); 
 
@@ -131,8 +134,7 @@ d3.csv("../data/healthyLifestyleCity_2021.csv", d3.autoType)
                         .delay(200)
                            .attr("r", d => sizeScale(d.cityOutdoorActivity))
                            .attr("fill", d => colorScale(d.continent))
-                     
-
+ 
                  );
                            
                 

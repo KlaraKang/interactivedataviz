@@ -8,7 +8,7 @@ const formatDate = d3.timeFormat("%b")
 /* LOAD DATA */
 d3.csv('../data/pedestrianSum.csv', d => {
   return {
-    month: new Date(2019, +d.Month, -16, 0), // + sign is to force the data to be recognized as number 
+    month: new Date(2019, +d.Month, 1, 0), // + sign is to force the data to be recognized as number 
     pedestrian: +d.PedestrianSum
   }
 }).then(data => {
@@ -25,8 +25,8 @@ d3.csv('../data/pedestrianSum.csv', d => {
   // CREATE SVG ELEMENT
   const svg = d3.select("#container")
               .append("svg")
-            //  .attr("width", width)
-            //  .attr("height", height)
+              .attr("width", width)
+              .attr("height", height)
               .attr("viewBox",`0, 0, ${width+margin.left+margin.right},
                     ${height+margin.top+margin.bottom}`)
               .append("g")
@@ -42,7 +42,7 @@ d3.csv('../data/pedestrianSum.csv', d => {
 
   // BUILD AND CALL AXES
   const xAxis = d3.axisBottom(xScale).tickFormat(formatDate)
-   .ticks(13) // limit the number of tick marks showing -- note: this is approximate
+   .ticks(12) // limit the number of tick marks showing -- note: this is approximate
    
    svg.append("g")
       .attr("class", "xAxis")
@@ -72,7 +72,7 @@ const yAxis = d3.axisLeft(yScale)
       .data([data]) // data in [] is only for line chart
       .join("path")
       .attr("class", "line")
-      .attr("stroke", "blue")
+      .attr("stroke", "#C70039")
       .attr("fill","none")
       .attr("d", d=>lineGen(d))
   
@@ -81,7 +81,7 @@ const yAxis = d3.axisLeft(yScale)
       .data([data]) 
       .join("path")
       .attr("class","area")  
-      .attr("fill","yellow") 
+      .attr("fill","#A5C4E7") 
       .attr("d", d=>areaGen(d))
       
       
