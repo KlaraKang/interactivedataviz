@@ -77,7 +77,7 @@ Promise.all([
         })
         .attr("fill","green")
         .call(enter => enter.transition()
-              .delay(200)
+              .delay(100)
               .attr("r", 5)
               .attr("fill", d=> {
                   if(d.Change_in_95_percent_Days > 0)
