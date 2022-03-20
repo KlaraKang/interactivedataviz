@@ -7,7 +7,34 @@
   </head>
   <body>
     <h3>Section 2 | Geographic</h3>
+    <div><br></div>
     <div id="container"> </div>
+    <div id="legend">
+    <svg width="150" height="50" viewBox="0,0,150,50" style="overflow: visible; display: block;">
+      <g transform="translate(40,60)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">
+        <g class="tick" opacity="1" transform="translate(0,0)">
+          <line stroke="currentColor" y2="6" y1="-10"/>
+          <text fill="red" y="9" dy="0.71em">−55</text>
+        </g>
+        <g class="tick" opacity="1" transform="translate(20,0)">
+          <line stroke="currentColor" y2="6" y1="-10"/>
+          <text fill="pink" y="9" dy="0.71em">−30</text>
+        </g>
+          <g class="tick" opacity="1" transform="translate(50,0)">
+            <line stroke="currentColor" y2="6" y1="-10"/>
+            <text fill="currentColor" y="9" dy="0.71em">0</text>
+          </g>
+      <g class="tick" opacity="1" transform="translate(80,0)">
+        <line stroke="currentColor" y2="6" y1="-10"/>
+        <text fill="skyblue" y="9" dy="0.71em">+30</text>
+      </g>
+      <g class="tick" opacity="1" transform="translate(100,0)">
+        <line stroke="currentColor" y2="6" y1="-10"/>
+        <text fill="darkblue" y="9" dy="0.71em">+55</text>
+      </g>
+      <text x="0" y="-16" fill="currentColor" text-anchor="start" font-weight="bold" class="title">Temperature (°C)</text>
+    </g>
+  </svg>  </div>
     <script src="../lib/d3.js"></script>
     <script src="main.js"></script>
   </body>
