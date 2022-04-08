@@ -1,7 +1,7 @@
 /* CONSTANTS AND GLOBALS */
 const width = window.innerWidth*.8,
 height = window.innerHeight*.8,
-margin = {top:20, bottom:20, left:50, right:20};
+margin = {top:20, bottom:20, left:150, right:20};
 
 // // since we use our scales in multiple functions, they need global scope
 // let xScale, yScale;
@@ -17,10 +17,10 @@ let state = {
 };
 
 /* LOAD DATA */
-d3.csv('../data/HateCrimeByBiasType.csv', d3.autoType).then(raw_data => {
+d3.csv('../data/20YrsUSHateCrime.csv', d3.autoType).then(raw_data => {
   // group and sum the data
   sum_victim = d3.rollup(raw_data, v=>d3.sum(v, g=>g.SUM_VICTIM_COUNT),
-                          d => d.BIAS_TYPE, d=>d.DATA_YEAR)  // Reduced, but it's an InternMap
+                          d => d.BIAS_TYPES, d=>d.DATA_YEAR)  // Reduced, but it's an InternMap
   // reorganizing to a flat array
   function unroll(rollup, keys, label = "value", p ={}){
             return Array.from(rollup, ([key, value]) => 
@@ -29,7 +29,7 @@ d3.csv('../data/HateCrimeByBiasType.csv', d3.autoType).then(raw_data => {
           : Object.assign({}, { ...p, [keys[0]]: key, [label] : value })
           ).flat();
   } 
-  sums = unroll(sum_victim, ["BIAS_TYPE", "DATA_YEAR"], "SUM_VICTIM_COUNT")
+  sums = unroll(sum_victim, ["BIAS_TYPES", "DATA_YEAR"], "SUM_VICTIM_COUNT")
   
   // save the summed data to application state
   state.data = sums;
@@ -38,10 +38,10 @@ d3.csv('../data/HateCrimeByBiasType.csv', d3.autoType).then(raw_data => {
   year_menu = Array.from(d3.group(state.data, d=>d.DATA_YEAR),
                          ([key, value]) => ({key: key, value: key}))
   year_menu = year_menu.sort((d,i)=>d3.descending(d.value,i.value))
-  bias_types = Array.from(d3.group(state.data, d=>d.BIAS_TYPE).keys()) 
-
-  //console.log(year_menu) // [{key: 2020, value: 2020}, {key: 2019, value: 2019},..]
-  //console.log(bias_types) // ['Race', 'Gender', 'Religion', 'Disability', 'Unknown']
+ //console.log(year_menu) // [{key: 2020, value: 2020}, {key: 2019, value: 2019},..]
+  bias_types = Array.from(d3.group(state.data, d=>d.BIAS_TYPES).keys())
+  bias_types = bias_types.sort(d3.ascending) 
+  console.log(bias_types) 
     
   init();
 });          
@@ -58,14 +58,14 @@ function init() {
             
   // yScale - categorical
   yScale = d3.scaleBand()
-             .domain(state.data.map(d=> d.BIAS_TYPE))
+             .domain(state.data.map(d=> d.BIAS_TYPES).sort(d3.ascending) )
              .range([margin.bottom, height-margin.top])
              .padding(.3)
             
   // color scale
   colorScale = d3.scaleOrdinal()
                 .domain(bias_types)
-                .range(d3.schemeSet3)   
+                .range(["#01161e","#124559","#598392","#a2b9bc","#b2ad7f","#aec3b0","#bdcebe","#A5C4E7","#92a8d1","#034f84","#deeaee"])  
 
   // + AXES
   const xAxis = d3.axisBottom(xScale)
@@ -115,12 +115,12 @@ function init() {
 /* DRAW FUNCTION */
 function draw() {
   // + FILTER DATA BASED ON STATE
-   const filteredData = state.data
+  const filteredData = state.data
        .filter(d => state.selectYear === d.DATA_YEAR) 
   console.log(filteredData) 
 
-  svg.selectAll("rect", "text")
-     .data(filteredData, d => d.ID)
+  const bars = svg.selectAll("rect")
+     .data(filteredData, d => d.INCIDENT_ID)
      .join(
       // + HANDLE ENTER SELECTION
       enter => enter
@@ -129,40 +129,40 @@ function draw() {
         .attr("width", 0)
         .attr("height", yScale.bandwidth())
         .attr("x", margin.left)
-        .attr("y", d=>yScale(d.BIAS_TYPE))
-        .attr("fill", d=>colorScale(d.BIAS_TYPE))
+        .attr("y", d=>yScale(d.BIAS_TYPES))
+        .attr("fill", d=>colorScale(d.BIAS_TYPES))
         .call(enter => enter
           .transition()
           .duration(1000)
           .attr("width", (d,i)=> xScale(d.SUM_VICTIM_COUNT)-margin.left)
-          .attr("fill", d=>colorScale(d.BIAS_TYPE))
-          )
+          .attr("fill", d=>colorScale(d.BIAS_TYPES))
+        )
         ,
         // + HANDLE UPDATE SELECTION
         update => update
         ,
-  
         // + HANDLE EXIT SELECTION
         exit => exit
           .transition()
           .duration(500)
           .attr("x", xScale(0))
           .attr("width", 0)
-          .remove()    
-      ) 
+          .remove()  
+      )  
 
-  svg.append("g")
+      
+     svg.append("g")
       .selectAll("text")
       .data(filteredData, d => d.ID)
-      .attr("class","data-label")
       .join(
         enter=>enter
-            .append("text")
+        .append("text")
             .text(d=>d.SUM_VICTIM_COUNT)
-            .attr("y", (d, i) => yScale(d.BIAS_TYPE)+yScale.bandwidth()/2)
+            .attr("y", (d, i) => yScale(d.BIAS_TYPES)+yScale.bandwidth()/2)
             .attr("x", d=>xScale(d.SUM_VICTIM_COUNT)+10)
             .attr("font-size","10px")
             .attr("text-anchor", "middle")
+            .attr("fill", "red")
         ,
         update=>update
         ,
@@ -171,11 +171,10 @@ function draw() {
           .duration(50)
           .attr("x",0)
           .remove("data-label")
-      )
-    
-  /* 2 major problems: 
-  bar for "Race" don't reize when x-value changes
-  data-label (old values don't exit out)
+      ) 
+       
+  /* 
+  old data-labels don't exit out
   */
 
                
