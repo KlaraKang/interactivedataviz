@@ -2,13 +2,18 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
   padding: 1em;
+  background-color:darkgrey
 }
 
 h1 {
   font-size: 3em;
   margin: 0.25em 0;
 }
-
+h2 {
+  font-size: 2em;
+  margin: 0.25em 0;
+  color:brown
+}
 h3 {
   font-size: 2em;
   margin: 0.25em 0;
@@ -21,6 +26,7 @@ p {
 #tooltip {
   display: block;
   height: 50px;
+  color:brown
 }
 
 path.state {
