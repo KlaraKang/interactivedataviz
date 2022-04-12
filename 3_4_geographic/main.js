@@ -137,7 +137,7 @@ function draw() {
                     .html(`<div>${d.STATE_NAME}</div>
                             <div>Number of Victims: ${d.SUM_VICTIM_COUNT}</div>`)
                     .style("visibility", "visible")
-                    .style("background","lightyellow")
+                    .style("background","lightblue")
                 })
                 .on("mousemove", function(event){
                     tooltip
@@ -150,7 +150,7 @@ function draw() {
                     .style("visibility", "hidden");
                 })
             .call(enter => enter.transition()
-                .delay(1000)
+                .delay(500)
                 .attr("r", d=>{
                     if(d.DATA_YEAR === "All")
                       return Math.log(d.SUM_VICTIM_COUNT)*2
@@ -167,7 +167,7 @@ function draw() {
             // + HANDLE EXIT SELECTION
             exit => exit
             .transition()
-            .duration(1000)
+            .duration(500)
             .attr("fill","gray")
             .attr("r", (radius*.25))
             .delay(250)
