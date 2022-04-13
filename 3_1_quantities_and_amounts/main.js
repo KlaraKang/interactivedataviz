@@ -139,7 +139,7 @@ function draw() {
        .filter(d => state.selectYear === d.DATA_YEAR) 
   console.log(filteredData) 
 
-  svg.selectAll("rect")
+  let bars = svg.selectAll("rect")
      .data(filteredData, d => d.INCIDENT_ID)
      .join(
       // + HANDLE ENTER SELECTION
@@ -184,21 +184,21 @@ function draw() {
           .duration(500)
           .attr("x", xScale(0))
           .attr("width", 0)
-          .remove()  
+          .remove("bar")  
       )   
-           
-  svg.selectAll("text")
+
+  svg.selectAll("text.data-labels")
      .data(filteredData, d => d.INCIDENT_ID)
      .join(
       enter=>enter
-       .append("text")
-       .attr("class","data-labels")
-         .text(d=>d.SUM_VICTIM_COUNT)
-         .attr("y", (d, i) => yScale(d.BIAS_TYPES)+yScale.bandwidth()/2)
-         .attr("x", d=>xScale(d.SUM_VICTIM_COUNT)+10)
-         .attr("font-size","10px")
-         .attr("text-anchor", "middle")
-         .attr("fill", "red")
+        .append("text")
+        .attr("class","data-labels")
+        .text(d=>d.SUM_VICTIM_COUNT)
+        .attr("y", (d, i) => yScale(d.BIAS_TYPES)+yScale.bandwidth()/2)
+        .attr("x", d=>xScale(d.SUM_VICTIM_COUNT)+10)
+        .attr("text-anchor", "middle")
+        .attr("fill","red")
+        .attr("font-size","11px")
       ,
       update=>update
       ,
@@ -206,9 +206,7 @@ function draw() {
        .transition()
        .duration(50)
        .attr("x", 0)
-       .remove("data-labels")
-       
-         
-   )  
+       .remove("data-labels")   
+      )
   
 }  
