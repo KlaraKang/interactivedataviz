@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Interactive Data Visualization</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+  </head>
+  <body>
+    <section id="header" class="padded">
+      <div >
+        <h1>20 Years of U.S. Hate Crimes</h1>
+        <h2> Data visualizations of U.S. hate crimes occurred between 2001 and 2020. </h2>
+        <p style="color:rgb(10, 64, 64);font-size: 16px;"> <b>Topics covered:</b><br>
+          1) Hate crime volume across the U.S. states per year.<br>
+          2) Changes of the incident volume over the 20 years per state.<br>
+          3) Incident volume for each different bias type per year. <br>
+          4) Distribution of the crimes by the offense types over the 20 years. <br>
+          5) Hate crime volume for each different victim type per year.<br>
+          6) Hierarchy of the place types where the crimes had occurred the most.<br><br> 
+          <b>Goals:</b>
+          By visualizing 20 years of the hate crime data for each of these topics, 
+          I would like to find patterns of the incident, such as when the hate crimes occurred the most, 
+          where these crimes took place, who the victims were, how the crimes were motivated, 
+          and how the crimes were carried out.<br><br>
+          <b>Data Source: Federal Bureau of Investigation Crime Data Explorer </b><br>
+          The Hate Crime Statistics dataset (Years: 1991-2020, File size: 4.57MB, Last modified: Oct.25, 2021) <br>
+          URL: <a style="color:rgb(154, 199, 199)" href= "https://crime-data-explorer.app.cloud.gov/pages/downloads" target="_blank">
+          https://crime-data-explorer.app.cloud.gov/pages/downloads</a>
+        </p>
+      </div>
+    </section>  
+    
+    <section id="USmap" class="bg-dark">
+      <div class="padded">
+        <h4><br>Part I. Hate crimes across the states.</h4>       
+        <p class = "findings-d">
+          <b>California, New Jersey, and New York are responsible for over 31% of all hate crimes in the U.S.<br> 
+          Year 2020 has the highest hate crime volume reported since 2001.</b>
+        </p>
+        <iframe src="./map.html" scrolling="no"></iframe>
+        <p style="color:darkgoldenrod;font-size: 13px;"> 
+          *Note: The circles for the "All" category are down sized by log*2.5 in order to be fitted in the graphic. <br>
+          Thus, they're not exactly depicted as exact sum of all values for 20 years. <br><br>
+        </p>
+      </div>
+    </section> 
+
+    <section id="statesLine">
+      <div class="padded">
+      <h5>Part II. Hate crimes over the 20 years.</h5>     
+        <table>
+          <tr>
+            <td width ="70%">
+              <iframe src="./states.html" scrolling="no"></iframe>
+            </td>
+            <td width ="30%">
+              <p class = "findings-l"> 
+                <b>California has the highest hate crime volume each and every year since 2001. <br>
+                 Nebraska has the highest increase of hate crime rates in 1 year, from 2001 to 2020. (21 points up).</b>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </div>  
+    </section>
+
+    <section id="type_bar" class="bg-dark">
+      <div class="padded">
+        <h4><br>Part III-IV. Motivations of the crimes and types of the victims.</h4>
+        <p class = "findings-d">
+          <b>African Americans are the most targeted population for the bias-motivated crimes, each and every year.<br>
+          Anti-Asian crimes increased almost a double in year 2020 compared to year 2019.<br>
+          81.5% of the hate crime victims are individuals. </b>
+        </p>
+        <iframe src="./biasVict.html" scrolling="no"></iframe>
+      </div>
+    </section>
+
+    <section id="type_distribution">
+      <div class="padded">
+        <h5>Part V. How the hate crimes were carried out.</h5>
+        <table>
+          <tr>
+            <td width="80%">
+              <iframe src="./offense.html" scrolling="no"></iframe>
+            </td>
+            <td width="20%">
+              <p class="findings-l">
+              <b>Vandalism, Intimidatin, and Aggravated Assault are the top 3 acts of the hate crimes. </b>
+              </p>
+            </td>
+          </tr>  
+        </table>
+      </div>
+    </section>
+
+    <section id="location" class="bg-dark">
+      <div class="padded">
+        <h4><br>Part VI. Where these crimes took place.</h4>
+        <p class = "findings-d"> 
+          <b>31.0% of the time the hate crimes were occured in residencial areas, 18.5% on highways, 
+            and 9.5% in schools.</b>
+        </p>
+        <iframe src="./location.html" scrolling="no"></iframe>
+      </div>
+    </section>
+ 
+  <section class="reference">
+    <div class="padded">
+    <p style="color:navy;"><b>References:</b><br>
+      <li>View the developments in the fight for passage of federal hate crimes legislation from 1989-2009 on 
+      <a href="https://www.hrc.org/resources/hate-crimes-timeline#2009" target="_blank">the Human Rights Campaign website.</a></li>
+      <br>
+      <li>2020 Hate Crimes Statistics on 
+      <a href="https://www.justice.gov/crs/highlights/2020-hate-crimes-statistics" target="_blank">the FBI website.</a></li>
+    </p>
+    </div>
+  </section>
+
+  <script src="../lib/d3.js"></script>
+
+  </body>
+  
+  <footer class="padded"> 
+  
+  </footer>
+</html>

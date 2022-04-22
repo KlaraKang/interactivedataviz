@@ -1,0 +1,120 @@
+body {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 16px;
+  padding: none;
+  margin-left: 0%;
+  margin-right: 0%;
+  background-color: aliceblue;
+}
+.bg-dark {
+  background-color: #384450;
+}
+.padded{
+  margin-left:2em; 
+  margin-right: 2em;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  color:rgb(164, 151, 72);
+}
+  
+h2 {
+  font-size: 1.5em;
+  color: rgb(147, 146, 146);
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.2em;
+  color:rgb(227, 185, 87);  
+}
+
+h4{
+  font-size: 2em;
+  color:rgb(164, 151, 72);  
+}
+h5{
+  font-size: 2em;
+  color:rgb(122, 32, 32);  
+}
+p {
+  font-size: 1.3em;
+}
+.findings-d{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color:rgb(194, 204, 207);
+  font-size:  40px;
+  margin-right: 2em;
+}
+.findings-l{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color:rgb(218, 165, 94); 
+  font-size:  40px;
+}
+iframe {
+  border:none;
+  overflow: hidden;
+  width: 100%;
+  height: 700px;
+}
+
+.xAxis text {
+  font-size: 10px;
+  color:rgb(86, 86, 102)
+}
+  
+.yAxis text {
+  font-size: 10px;
+  color:rgb(67, 67, 104)
+}
+
+.data-labels1{
+  font-size: 12px;
+  font-family:'Courier New', Courier, monospace;
+}
+
+.xAxis1 text {
+  font-size: 10px;
+  color:rgb(177, 213, 230)
+}
+
+.yAxis1 text {
+  font-size: 10px;
+  color:rgb(177, 213, 230)
+}
+.data-labels2{
+  font-size: 12px;
+  font-family:'Courier New', Courier, monospace;
+}
+  
+.xAxis2 text {
+  font-size: 10px;
+  color:rgb(177, 213, 230)
+}
+  
+.yAxis2 text {
+  font-size: 10px;
+  color:rgb(177, 213, 230)
+}
+  
+.axisLine1 line{
+  stroke:aliceblue;
+}
+.axisLine1 path{
+  stroke:aliceblue;
+}
+.axisLine1 text{
+  fill:aliceblue;
+}
+
+path.state {
+  stroke: black;
+}
+
+
+footer {
+  color:rgb(10, 64, 64);
+  font-size: 1em;
+}
