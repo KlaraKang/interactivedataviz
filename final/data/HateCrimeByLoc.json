@@ -1,0 +1,138 @@
+{
+  "name": "location",
+  "children": 
+  [
+    {
+      "DESCRIPTION": "Residence",
+      "SUM_VICTIM_COUNT": 56011
+    },
+    {
+      "DESCRIPTION": "Highway",
+      "SUM_VICTIM_COUNT": 33438
+    },
+    {
+      "DESCRIPTION": "Other",
+      "SUM_VICTIM_COUNT": 19558
+    },
+    {
+      "DESCRIPTION": "School",
+      "SUM_VICTIM_COUNT": 17236
+    },
+    {
+      "DESCRIPTION": "Store",
+      "SUM_VICTIM_COUNT": 11076
+    },
+    {
+      "DESCRIPTION": "Garage",
+      "SUM_VICTIM_COUNT": 10703
+    },
+    {
+      "DESCRIPTION": "Religious Place",
+      "SUM_VICTIM_COUNT": 6835
+    },
+    {
+      "DESCRIPTION": "Restaurant",
+      "SUM_VICTIM_COUNT": 3929
+    },
+    {
+      "DESCRIPTION": "Commercial Building",
+      "SUM_VICTIM_COUNT": 3672
+    },
+    {
+      "DESCRIPTION": "Bar",
+      "SUM_VICTIM_COUNT": 3359
+    },
+    {
+      "DESCRIPTION": "Government Building",
+      "SUM_VICTIM_COUNT": 2822
+    },
+    {
+      "DESCRIPTION": "Public Transit",
+      "SUM_VICTIM_COUNT": 1921
+    },
+    {
+      "DESCRIPTION": "Gas Station",
+      "SUM_VICTIM_COUNT": 1769
+    },
+    {
+      "DESCRIPTION": "Field",
+      "SUM_VICTIM_COUNT": 1754
+    },
+    {
+      "DESCRIPTION": "Park",
+      "SUM_VICTIM_COUNT": 1505
+    },
+    {
+      "DESCRIPTION": "Jail",
+      "SUM_VICTIM_COUNT": 1338
+    },
+    {
+      "DESCRIPTION": "Hotel",
+      "SUM_VICTIM_COUNT": 1244
+    },
+    {
+      "DESCRIPTION": "Cyberspace",
+      "SUM_VICTIM_COUNT": 701
+    },
+    {
+      "DESCRIPTION": "Construction Site",
+      "SUM_VICTIM_COUNT": 490
+    },
+    {
+      "DESCRIPTION": "Bank",
+      "SUM_VICTIM_COUNT": 428
+    },
+    {
+      "DESCRIPTION": "Waterway",
+      "SUM_VICTIM_COUNT": 340
+    },
+    {
+      "DESCRIPTION": "Community Center",
+      "SUM_VICTIM_COUNT": 210
+    },
+    {
+      "DESCRIPTION": "Shelter",
+      "SUM_VICTIM_COUNT": 151
+    },
+    {
+      "DESCRIPTION": "Auto Dealership",
+      "SUM_VICTIM_COUNT": 97
+    },
+    {
+      "DESCRIPTION": "Arena",
+      "SUM_VICTIM_COUNT": 72
+    },
+    {
+      "DESCRIPTION": "Abandoned Structure",
+      "SUM_VICTIM_COUNT": 59
+    },
+    {
+      "DESCRIPTION": "Camp",
+      "SUM_VICTIM_COUNT": 58
+    },
+    {
+      "DESCRIPTION": "Gambling place",
+      "SUM_VICTIM_COUNT": 45
+    },
+    {
+      "DESCRIPTION": "Daycare Facility",
+      "SUM_VICTIM_COUNT": 39
+    },
+    {
+      "DESCRIPTION": "Farm",
+      "SUM_VICTIM_COUNT": 31
+    },
+    {
+      "DESCRIPTION": "Tribal Lands",
+      "SUM_VICTIM_COUNT": 14
+    },
+    {
+      "DESCRIPTION": "ATM",
+      "SUM_VICTIM_COUNT": 13
+    },
+    {
+      "DESCRIPTION": "Military Installation",
+      "SUM_VICTIM_COUNT": 7
+    }
+  ]
+}
