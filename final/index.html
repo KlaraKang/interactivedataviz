@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Interactive Data Visualization</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+  </head>
+  <body>
+    <h1>20 Years of U.S. Hate Crimes</h1>
+    <br>
+    <h2> Data visualizations of U.S. hate crimes occurred between 2001 and 2020. </h2>
+    <p style="color:darkblue;font-size: 14px;"> <b>Topics covered:</b><br>
+      1) Hate crime volume across the U.S. states per year.<br>
+      2) Changes of the incident volume over the 20 years per state.<br>
+      3) Incident volume for each different bias type per year. <br>
+      4) Distribution of the crimes by the offense types over the 20 years. <br>
+      5) Hate crime volume for each different victim type per year.<br>
+      6) Hierarchy of the place types where the crimes had occurred the most.<br>
+    <br> <b>Goals:</b>
+      By visualizing 20 years of the hate crime data for each of these topics, 
+      I would like to find patterns of the incident, such as when the hate crimes occurred the most, 
+      where these crimes took place, who the victims were, how the crimes were motivated, 
+      and how the crimes were carried out.
+    </p>
+    <p> <b>Part I. Hate crimes across the states.</b></p>
+    <p style="color:black;font-size: 13px;"> 
+    *Note: The circles for the "All" category are down sized by log*2 in order to be fitted in the graphic. <br>
+    Thus, they're not exactly depicted as exact sum of all values for 20 years. 
+    </p>
+    <p style="color:darkblue;font-size: 14px;">
+      <b>Findings:</b><br>
+      <li> California has the highest number of hate crime victims for the last 20 years, followed by New Jersey, New York, and Michigan.</li> 
+      <li> Year 2020 has the highest reported hate crimes since 2001, followed by year 2001 and 2008.</li>
+      </p>
+    <div id="map"> 
+      <iframe src="./map.html" scrolling="no"></iframe>
+    </div>
+
+    <p> <b>Part II. Hate Crimes over the 20 years.</b></p>
+    <p style="color:darkblue;font-size: 14px;"> 
+      <b>Findings:</b><br>
+      <li> California has the highest hate crime volume each and every year, from 2001 to 2020. </li>
+      <li> Nebraska has the highest increase of hate crime rates in 1 year, from 2001 to 2020. (21 points up).</li>
+    </p>
+    <div id="states"> 
+      <iframe src="./states.html" scrolling="no"></iframe>
+    </div>
+
+    <p> <b>Part III-IV. How the crimes were motivated and who the victims were.</b></p>
+    <p style="color:darkblue;font-size: 14px;"> 
+      <b>Findings:</b><br>
+      <li> African Americans were targeted the most, each and every year for the last 20 years. </li>
+      <li> Anti-Asian crimes increased almost a double in year 2020 compared to 2019. </li>
+      <li> Most of the hate crime victims were individuals (81.5%). </li>
+    </p>
+    <div id="bias"> 
+      <iframe src="./biasVict.html" scrolling="no"></iframe>
+    </div>
+
+    <p> <b>Part V. How the crimes were carried out.</b></p>
+    <p style="color:darkblue;font-size: 14px;"> 
+      <b>Findings:</b><br>
+      <li> The top 3 forms of the hate crimes were Vandalism, Intimidatin, and Aggravated assault. 
+    <div id="offense"> 
+      <iframe src="./offense.html" scrolling="no"></iframe>
+    </div>
+
+    <p> <b>Part VI. Where these crimes took place: 20 years of the total victims by location type.</b></p>
+    <p style="color:darkblue;font-size: 14px;"> 
+      <b>Findings:</b><br>
+      <li> 31.0% of the time the hate crimes were occured in residence areas, 18.5% on highways, and 9.5% in schools.
+    <div id="location"> 
+      <iframe src="./location.html" scrolling="no"></iframe>
+    </div>
+
+    <script src="../lib/d3.js"></script>
+    <script src="main.js"></script>
+   
+
+    <p style="color:navy;"><b>References:</b><br>
+      <li>View the developments in the fight for passage of federal hate crimes legislation from 1989-2009 on 
+      <a href="https://www.hrc.org/resources/hate-crimes-timeline#2009" target="_blank">the Human Rights Campaign website.</a></li>
+    <br>
+      <li>2020 Hate Crimes Statistics on 
+      <a href="https://www.justice.gov/crs/highlights/2020-hate-crimes-statistics" target="_blank">the FBI website.</a></li>
+    </p>
+  </body>
+  
+  <footer> 
+    Data Source: Federal Bureau of Investigation Crime Data Explorer <br>
+    The Hate Crime Statistics dataset (Years: 1991-2020, File size: 4.57MB, Last modified: Oct.25, 2021) <br>
+    URL: <a style="color:rgb(154, 199, 199)" href= "https://crime-data-explorer.app.cloud.gov/pages/downloads" target="_blank">
+      https://crime-data-explorer.app.cloud.gov/pages/downloads</a>
+  </footer>
+</html>
