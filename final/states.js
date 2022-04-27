@@ -28,24 +28,9 @@ d3.csv('./data/hateCrime_stateLine.csv', d => {
   }
 })
   .then(rawdata => {
-  /*   // group and sum the data
-  var sum_victim = d3.rollup(data, v=>d3.sum(v, g=>g.SUM_VICTIM_COUNT),
-                             d => d.STATE_NAME, d=>d.DATA_YEAR)  // Reduced, but it's an InternMap
 
-  // reorganizing to a flat array
-  function unroll(rollup, keys, label = "value", p ={}){
-          return Array.from(rollup, ([key, value]) => 
-          value instanceof Map ? unroll(value, keys.slice(1), label, 
-          Object.assign({}, { ...p, [keys[0]]: key } ))
-          : Object.assign({}, { ...p, [keys[0]]: key, [label] : value })
-          ).flat();
-        } 
-  sums = unroll(sum_victim, ["STATE_NAME", "DATA_YEAR"], "SUM_VICTIM_COUNT")
-
-  // save the summed data to application state 
-  state.data = sums;*/
   state.data = rawdata;
-  console.log(state.data) // Year as number
+  console.log(state.data)
 
     init();
   });
